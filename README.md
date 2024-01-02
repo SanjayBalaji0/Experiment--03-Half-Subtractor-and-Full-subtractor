@@ -26,29 +26,84 @@ A full subtractor is a combinational circuit that performs subtraction involving
 Diff = A ⊕ B ⊕ Bin B = A'Bin + A'B + BBin
 
 ## Procedure
+Create a New Project:
 
+Open Quartus and create a new project by selecting "File" > "New Project Wizard."
+Follow the wizard's instructions to set up your project, including specifying the project name, location, and target device (FPGA).
+Create a New Design File:
 
+Once the project is created, right-click on the project name in the Project Navigator and select "Add New File."
+Choose "Verilog HDL File" or "VHDL File," depending on your chosen hardware description language.
+Write the Combinational Logic Code:
 
-Write the detailed procedure here 
+Open the newly created Verilog or VHDL file and write the code for your combinational logic.
+Compile the Project:
+
+To compile the project, click on "Processing" > "Start Compilation" in the menu.
+Quartus will analyze your code, synthesize it into a netlist, and perform optimizations based on your target FPGA device.
+Analyze and Fix Errors:
+
+If there are any errors or warnings during the compilation process, Quartus will display them in the Messages window.
+Review and fix any issues in your code if necessary.
+View the RTL diagram.
+Verification:
+
+Click on "File" > "New" > "Verification/Debugging Files" > "University Program VWF".
+Once Waveform is created Right Click on the Input/Output Panel > " Insert Node or Bus" > Click on Node Finder > Click On "List" > Select All.
+Give the Input Combinations according to the Truth Table amd then simulate the Output Waveform.
 
 
 ## Program:
 /*
 Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by: S.Sanjay Balaji
+RegisterNumber:  23005804
 */
+```
+Half Subractor:
+module halfsub(diff,carry,a,b,c);
 
-## Output:
+input a,b,c;
 
+output diff,carry;
+
+xor(diff,a,b,c);
+
+assign carry= (~a)&c | (~a)&b | (b&c);
+
+endmodule
+
+Full Subractor:
+modue fs(input x,y,z,output d,b);
+
+assigh zc=x^y^z^;
+
+assign b = ~x & (y^z) | y&z;
+
+endmodule
+```
 ## Truthtable
+### HALF SUBTRACTOR:
+![image](https://github.com/SanjayBalaji0/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/145533553/8a0b52d4-f3bd-43de-a149-442441984730)
 
+### FULL SUBTRACTOR:
+![image](https://github.com/SanjayBalaji0/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/145533553/a53bd717-a72d-4a88-9de5-686fc866cebd)
 
 
 ##  RTL realization
+### HALF SUBTRACTOR:
+![image](https://github.com/SanjayBalaji0/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/145533553/25d42e70-419d-4061-a259-3b9688a7db17)
 
+### FULL SUBTRACTOR:
+![image](https://github.com/SanjayBalaji0/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/145533553/a79099f6-48d4-4bb6-b30e-0ba528f2bf8e)
 
 ## Timing diagram 
+### HALF SUBTRACTOR:
+![image](https://github.com/SanjayBalaji0/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/145533553/334f141f-dbd1-45fa-a2db-228cb775836c)
+
+### FULL SUBTRACTOR:
+![image](https://github.com/SanjayBalaji0/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/145533553/4d078a01-acae-450d-ba8c-6949fca58693)
+
 
 ## Result:
 Thus the half subtractor and full subtractor circuits are designed and the truth tables is verified using quartus software.
